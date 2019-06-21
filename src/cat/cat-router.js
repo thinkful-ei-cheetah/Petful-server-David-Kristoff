@@ -13,7 +13,7 @@ catRouter.get('/', (req, res, next) => {
     res.status(200).json([]);
   }
   else {
-    let currNode = cats.first;
+    let currNode = cats.first.value;
 
     if (!currNode) return res.status(200).json(cat);
     console.log(currNode);

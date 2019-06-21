@@ -14,7 +14,7 @@ dogRouter.get('/', (req, res, next) => {
     res.status(200).json([]);
   }
   else {
-    let currNode = dog.first;
+    let currNode = dog.first.value;
     if (!currNode) return res.status(200).json(dogs);
     console.log(currNode);
     return res.status(200).json(currNode);
