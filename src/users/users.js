@@ -17,12 +17,6 @@ const data = [
   },
   {
     user: 'Harrison'
-  },
-  {
-    user: 'Elan'
-  },
-  {
-    user: 'Jonathan'
   }
 ];
 
