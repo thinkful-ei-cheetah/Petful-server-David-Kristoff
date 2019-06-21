@@ -17,7 +17,7 @@ catRouter.get('/', (req, res, next) => {
 
     if (!currNode) return res.status(200).json(cat);
     console.log(currNode);
-    return currNode;
+    return res.status(200).json(currNode);
     
   }
 
