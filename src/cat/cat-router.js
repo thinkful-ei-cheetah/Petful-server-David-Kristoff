@@ -35,8 +35,10 @@ catRouter.route('/').get((req, res, next) => {
 
 function handleDq() {
   let deletedUser = Users.dequeue();
-  let deleteCat = cat.dequeue();
+  let deleteCat = cats.dequeue();
   adopted.enqueue(Object.assign(deleteCat, deletedUser));
+  cats.enqueue(deleteCat);
+  Users.enqueue(deletedUser);
 }
 
 module.exports = catRouter;

@@ -44,6 +44,8 @@ function handleDq() {
   let deletedUser = Users.dequeue();
   let deleteDog = dog.dequeue();
   adopted.enqueue(Object.assign(deleteDog, deletedUser));
+  dog.enqueue(deleteDog);
+  Users.enqueue(deletedUser);
 }
 
 module.exports = dogRouter;
