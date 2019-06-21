@@ -26,10 +26,16 @@ dogRouter.route('/').get((req, res, next) => {
     const ad = Users.dequeue();
     console.log(ad.user);
     adopted.enqueue(Object.assign(deleteDog, ad));
-    return res.status(200).json(ad.user);
-    // const interval = setInterval(() => {
-
-    // });
+    res.status(200).json(ad.user);
+    const interval = setInterval(() => {
+      let deletedUser = Users.dequeue();
+      if (deletedUser.user !== 'David') {
+        Users.enqueue(deletedUser);
+      } else {
+        clearInterval(interval);
+      }
+    }, 5000);
+    return;
   });
 
 
