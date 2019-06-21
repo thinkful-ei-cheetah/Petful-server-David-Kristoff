@@ -14,12 +14,11 @@ catRouter.get('/', (req, res, next) => {
   }
   else {
     let currNode = cats.first;
-    while (currNode !== null) {
-      cat.push(currNode.value);
-      currNode = currNode.next;
-    }
 
-    res.status(200).json(cat);
+    if (!currNode) return res.status(200).json(cat);
+    console.log(currNode);
+    return currNode;
+    
   }
 
   catRouter.delete('/', (req, res, next) => {

@@ -40,6 +40,8 @@ class Queue {
     }
     return node.value;
   }
+
+  
 }
 
 module.exports = Queue; 

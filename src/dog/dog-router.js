@@ -15,12 +15,9 @@ dogRouter.get('/', (req, res, next) => {
   }
   else {
     let currNode = dog.first;
-    while (currNode !== null) {
-      dogs.push(currNode.value);
-      currNode = currNode.next;
-    }
-
-    res.status(200).json(dogs);
+    if (!currNode) return res.status(200).json(dogs);
+    console.log(currNode);
+    return currNode;
   }
 
   dogRouter.delete('/', jsonBodyParser, (req, res, next) => {
