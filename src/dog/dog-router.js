@@ -24,7 +24,6 @@ dogRouter.route('/').get((req, res, next) => {
     const deleteDog = dog.dequeue();
     const ad = Users.dequeue();
     adopted.enqueue(Object.assign(deleteDog, ad));
-
     res.status(200).json(ad.user);
   });
 
