@@ -24,7 +24,7 @@ catRouter.route('/').get((req, res, next) => {
     const deleteCat = cats.dequeue();
     const ad = Users.dequeue();
     adopted.enqueue(Object.assign(deleteCat, ad));
-    res.status(200).json(ad.user);
+    return res.status(200).json(ad.user);
   });
 
 
