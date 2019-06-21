@@ -7,7 +7,7 @@ const dog = require('./dogs');
 const Users = require('../users/users');
 const adopted = require('../adopted/adopted-service');
 
-dogRouter.get('/', (req, res, next) => {
+dogRouter.route('/').get((req, res, next) => {
   let dogs = [];
 
   if (!dog.first) {
@@ -19,16 +19,14 @@ dogRouter.get('/', (req, res, next) => {
     console.log(currNode);
     return res.status(200).json(currNode);
   }
-
-  dogRouter.delete('/', jsonBodyParser, (req, res, next) => {
+})
+  .delete(jsonBodyParser, (req, res, next) => {
     const deleteDog = dog.dequeue();
     const ad = Users.dequeue();
     adopted.enqueue(Object.assign(deleteDog, ad));
 
     res.status(200).json(ad.user);
   });
-
-});
 
 
 
