@@ -21,14 +21,6 @@ dogRouter.route('/').get((req, res, next) => {
   }
 })
   .delete(jsonBodyParser, (req, res, next) => {
-    // let deletedUser = Users.dequeue();
-    //   const deleteDog = dog.dequeue();
-    //   console.log(deleteDog);
-
-    // const ad = Users.dequeue();
-    // console.log(ad.user);
-    // adopted.enqueue(Object.assign(deleteDog, deletedUser));
-    // console.log(deletedUser, 'THIS IS THE DELETED USER');
     handleDq();
     const interval = setInterval(() => {
       if (Users.first.value !== 'David') {

@@ -20,7 +20,6 @@ catRouter.route('/').get((req, res, next) => {
     return res.status(200).json(currNode);
   }
 })
-
   .delete(jsonBodyParser, (req, res, next) => {
     handleDq();
     const interval = setInterval(() => {
