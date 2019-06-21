@@ -7,7 +7,7 @@ const data = [
     user: 'David'
   },
   {
-    user: 'Kristoff'
+    user: 'Kristof'
   },
   {
     user: 'Mike'

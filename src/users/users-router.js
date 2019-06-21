@@ -12,13 +12,12 @@ userRouter.get('/', (req, res, next) => {
     return res.status(200).json([]);
   }
   else {
-    let currNode = users.first;
-    while (currNode !== null) {
-      user.push(currNode.value);
-      currNode = currNode.next;
-    }
+    let currNode = users.first.value;
 
-    res.status(200).json(user);
+    if (!currNode) return res.status(200).json(users);
+    console.log(currNode);
+    return res.status(200).json(currNode);
+
   }
 });
 
