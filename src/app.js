@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
 const catRouter = require('./cat/cat-router');
 const dogRouter = require('./dog/dog-router');
 const {CLIENT_ORIGIN } = require('./config');
@@ -9,6 +10,7 @@ const app = express();
 app.use(cors({
   origin: CLIENT_ORIGIN
 }));
+app.use(helmet());
 
 
 app.use('/api/cats', catRouter);
