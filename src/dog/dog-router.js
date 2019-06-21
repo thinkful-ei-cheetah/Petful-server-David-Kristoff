@@ -21,23 +21,29 @@ dogRouter.route('/').get((req, res, next) => {
   }
 })
   .delete(jsonBodyParser, (req, res, next) => {
-    const deleteDog = dog.dequeue();
-    console.log(deleteDog);
-    const ad = Users.dequeue();
-    console.log(ad.user);
-    adopted.enqueue(Object.assign(deleteDog, ad));
-    res.status(200).json(ad.user);
+    // let deletedUser = Users.dequeue();
+    //   const deleteDog = dog.dequeue();
+    //   console.log(deleteDog);
+
+    // const ad = Users.dequeue();
+    // console.log(ad.user);
+    // adopted.enqueue(Object.assign(deleteDog, deletedUser));
+    // console.log(deletedUser, 'THIS IS THE DELETED USER');
+    handleDq();
     const interval = setInterval(() => {
-      let deletedUser = Users.dequeue();
-      if (deletedUser.user !== 'David') {
-        Users.enqueue(deletedUser);
+      if (Users.first.value !== 'David') {
+        handleDq();
       } else {
         clearInterval(interval);
       }
     }, 5000);
-    return;
+    return res.status(204).end();
   });
 
-
+function handleDq() {
+  let deletedUser = Users.dequeue();
+  let deleteDog = dog.dequeue();
+  adopted.enqueue(Object.assign(deleteDog, deletedUser));
+}
 
 module.exports = dogRouter;
