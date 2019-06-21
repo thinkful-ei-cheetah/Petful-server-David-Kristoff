@@ -20,12 +20,27 @@ catRouter.route('/').get((req, res, next) => {
     return res.status(200).json(currNode);
   }
 })
-  .delete (jsonBodyParser, (req, res, next) => {
-    const deleteCat = cats.dequeue();
-    const ad = Users.dequeue();
-    adopted.enqueue(Object.assign(deleteCat, ad));
-    return res.status(200).json(ad.user);
+
+  .delete(jsonBodyParser, (req, res, next) => {
+    handleDq();
+    const interval = setInterval(() => {
+      if (Users.first.value !== 'David') {
+        handleDq();
+      } else {
+        clearInterval(interval);
+      }
+    }, 5000);
+    return res.status(204).end();
   });
 
+function handleDq() {
+  let deletedUser = Users.dequeue();
+  let deleteCat = cat.dequeue();
+  adopted.enqueue(Object.assign(deleteCat, deletedUser));
+}
 
 module.exports = catRouter;
+
+
+
+
