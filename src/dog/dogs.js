@@ -21,7 +21,7 @@ const data = [
     sex: 'Male',
     age: 3,
     breed: 'Bulldog',
-    story: 'Owner Passed away'
+    story: 'Owner ran away'
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const data = [
     sex: 'Male',
     age: 3,
     breed: 'Greyhound',
-    story: 'Owner Passed away'
+    story: 'Owner spontaneously combusted'
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const data = [
     sex: 'Male',
     age: 3,
     breed: 'Chihuahua',
-    story: 'Owner Passed away'
+    story: 'Owner decided they wanted a larger dog'
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const data = [
     sex: 'Male',
     age: 3,
     breed: 'Great Dane',
-    story: 'Owner Passed away'
+    story: 'Owner passed away'
   }
 ];
 

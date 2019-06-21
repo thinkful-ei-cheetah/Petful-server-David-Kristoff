@@ -22,7 +22,7 @@ const data = [
     sex: 'Male',
     age: 2,
     breed: 'Russian Blue',
-    story: 'Thrown on the street',
+    story: 'Thrown off a bus',
     adopted: ''
   },
   {
@@ -44,7 +44,7 @@ const data = [
     sex: 'Male',
     age: 2,
     breed: 'Turkish Angora',
-    story: 'Thrown on the street',
+    story: 'Thrown out a window',
     adopted: ''
   },
   {
@@ -55,7 +55,7 @@ const data = [
     sex: 'Male',
     age: 2,
     breed: 'Goat',
-    story: 'Thrown on the street',
+    story: 'The true GOAT',
     adopted: ''
   }
 ];
