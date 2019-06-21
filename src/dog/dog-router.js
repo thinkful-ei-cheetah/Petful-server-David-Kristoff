@@ -22,7 +22,9 @@ dogRouter.route('/').get((req, res, next) => {
 })
   .delete(jsonBodyParser, (req, res, next) => {
     const deleteDog = dog.dequeue();
+    console.log(deleteDog);
     const ad = Users.dequeue();
+    console.log(ad.user);
     adopted.enqueue(Object.assign(deleteDog, ad));
     return res.status(200).json(ad.user);
     // const interval = setInterval(() => {
